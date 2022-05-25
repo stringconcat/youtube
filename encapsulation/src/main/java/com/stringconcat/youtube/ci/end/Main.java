@@ -1,9 +1,6 @@
 package com.stringconcat.youtube.ci.end;
 
-import kotlin.Pair;
-
 import java.time.ZonedDateTime;
-import java.util.List;
 
 public class Main {
 
@@ -20,18 +17,20 @@ public class Main {
         );
 
         // DATABASE
-        List<String> findSkyTeamFlightsQuery = findSkyTeamFlights.belongsTo.fold(
-                consortium -> List.of(consortium.id),
-                () -> List.of()
+        String findSkyTeamFlightsQuery = findSkyTeamFlights.belongsTo
+                .foldExactOrNone(
+                    consortium -> consortium.id,
+                    () -> null
         );
 
         System.out.println("find Sky Team Flights Query: " + findSkyTeamFlightsQuery);
 
         // CALL 3rd party system
-        String findSkyTeamFlightsQueryFor3rdParty = findSkyTeamFlights.belongsTo.fold(
-                consortium -> consortium.id,
-                () -> " "
-        );
+        String findSkyTeamFlightsQueryFor3rdParty = findSkyTeamFlights.belongsTo
+                .foldExactOrNone(
+                    consortium -> consortium.id,
+                    () -> " "
+                );
 
         System.out.println("find Sky Team Flights Query: " + findSkyTeamFlightsQueryFor3rdParty);
     }
@@ -42,7 +41,7 @@ public class Main {
                 ConsortiumCriteria.none()
         );
 
-        String findAllFlightsQuery = findAllFlights.belongsTo.fold(
+        String findAllFlightsQuery = findAllFlights.belongsTo.foldExactOrNone(
                 consortium -> consortium.id,
                 () -> null
         );
@@ -50,7 +49,7 @@ public class Main {
         System.out.println("find All Flights Query: " + findAllFlightsQuery);
 
         // CALL 3rd party system
-        String findSkyTeamFlightsQueryFor3rdParty = findAllFlights.belongsTo.fold(
+        String findSkyTeamFlightsQueryFor3rdParty = findAllFlights.belongsTo.foldExactOrNone(
                 consortium -> consortium.id,
                 () -> " "
         );

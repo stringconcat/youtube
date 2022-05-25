@@ -1,10 +1,10 @@
 package com.stringconcat.youtube.ci.one;
 
+import com.stringconcat.youtube.ci.one.business.Consortium;
+import com.stringconcat.youtube.ci.one.business.FlightSearch;
 import org.junit.jupiter.api.Test;
 
 import java.time.ZonedDateTime;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class FlightSearchTest {
 

@@ -11,7 +11,7 @@ final class ConsortiumCriteria {
         this.shouldBelongTo = shouldBelongTo;
     }
 
-    public <T> T fold(
+    public <T> T foldExactOrNone(
             Function<Consortium, T> applyIfExact,
             Supplier<T> applyIfNone
     ) {
