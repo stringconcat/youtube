@@ -13,13 +13,13 @@ public class Main {
         // API
         var findSkyTeamFlights = new FlightSearch(
                 ZonedDateTime.now(),
-                ConsortiumCriteria.exact(new Consortium("SkyTeam"))
+                AllianceCriteria.exact(new Alliance("SkyTeam"))
         );
 
         // DATABASE
         String findSkyTeamFlightsQuery = findSkyTeamFlights.belongsTo
                 .foldExactOrNone(
-                    consortium -> consortium.id,
+                        alliance -> alliance.id,
                     () -> null
         );
 
@@ -28,7 +28,7 @@ public class Main {
         // CALL 3rd party system
         String findSkyTeamFlightsQueryFor3rdParty = findSkyTeamFlights.belongsTo
                 .foldExactOrNone(
-                    consortium -> consortium.id,
+                        alliance -> alliance.id,
                     () -> " "
                 );
 
@@ -38,11 +38,11 @@ public class Main {
     public static void none() {
         var findAllFlights = new FlightSearch(
                 ZonedDateTime.now(),
-                ConsortiumCriteria.none()
+                AllianceCriteria.none()
         );
 
         String findAllFlightsQuery = findAllFlights.belongsTo.foldExactOrNone(
-                consortium -> consortium.id,
+                alliance -> alliance.id,
                 () -> null
         );
 
@@ -50,7 +50,7 @@ public class Main {
 
         // CALL 3rd party system
         String findSkyTeamFlightsQueryFor3rdParty = findAllFlights.belongsTo.foldExactOrNone(
-                consortium -> consortium.id,
+                alliance -> alliance.id,
                 () -> " "
         );
 

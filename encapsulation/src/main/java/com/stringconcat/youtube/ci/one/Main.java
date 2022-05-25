@@ -13,7 +13,7 @@ public class Main {
         // API
         var findSkyTeamFlights = new FlightSearch(
                 ZonedDateTime.now(),
-                new Consortium("SkyTeam")
+                new Alliance("SkyTeam")
         );
 
         // DATABASE

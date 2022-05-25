@@ -13,14 +13,14 @@ public class Main {
         // API
         var findSkyTeamFlights = new FlightSearch(
                 ZonedDateTime.now(),
-                ConsortiumCriteria.exact(new Consortium("SkyTeam"))
+                AllianceCriteria.exact(new Alliance("SkyTeam"))
         );
 
         // DATABASE
         String findSkyTeamFlightsQuery;
-        if (findSkyTeamFlights.belongsTo instanceof ConsortiumCriteria.Exact) {
-            findSkyTeamFlightsQuery = ((ConsortiumCriteria.Exact) findSkyTeamFlights.belongsTo).consortium.id;
-        } else if (findSkyTeamFlights.belongsTo instanceof ConsortiumCriteria.None) {
+        if (findSkyTeamFlights.belongsTo instanceof AllianceCriteria.Exact) {
+            findSkyTeamFlightsQuery = ((AllianceCriteria.Exact) findSkyTeamFlights.belongsTo).alliance.id;
+        } else if (findSkyTeamFlights.belongsTo instanceof AllianceCriteria.None) {
             findSkyTeamFlightsQuery = " ";
         } else {
             throw new IllegalArgumentException("ooops");
@@ -33,13 +33,13 @@ public class Main {
     public static void none() {
         var findAllFlights = new FlightSearch(
                 ZonedDateTime.now(),
-                ConsortiumCriteria.none()
+                AllianceCriteria.none()
         );
 
         String findAllFlightsQuery;
-        if (findAllFlights.belongsTo instanceof ConsortiumCriteria.Exact) {
-            findAllFlightsQuery = ((ConsortiumCriteria.Exact) findAllFlights.belongsTo).consortium.id;
-        } else if (findAllFlights.belongsTo instanceof ConsortiumCriteria.None) {
+        if (findAllFlights.belongsTo instanceof AllianceCriteria.Exact) {
+            findAllFlightsQuery = ((AllianceCriteria.Exact) findAllFlights.belongsTo).alliance.id;
+        } else if (findAllFlights.belongsTo instanceof AllianceCriteria.None) {
             findAllFlightsQuery = " ";
         } else {
             throw new IllegalArgumentException("ooops");

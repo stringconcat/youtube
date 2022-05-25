@@ -1,8 +1,8 @@
 package com.stringconcat.youtube.ci.two;
 
-class Consortium {
+class Alliance {
     public String id;
-    public Consortium(final String id) {
+    public Alliance(final String id) {
         this.id = id;
     }
 }

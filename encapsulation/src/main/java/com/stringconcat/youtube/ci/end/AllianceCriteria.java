@@ -3,16 +3,16 @@ package com.stringconcat.youtube.ci.end;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-final class ConsortiumCriteria {
+final class AllianceCriteria {
 
-    private final Consortium shouldBelongTo; //Nullable
+    private final Alliance shouldBelongTo; //Nullable
 
-    private ConsortiumCriteria(final Consortium shouldBelongTo) {
+    private AllianceCriteria(final Alliance shouldBelongTo) {
         this.shouldBelongTo = shouldBelongTo;
     }
 
     public <T> T foldExactOrNone(
-            Function<Consortium, T> applyIfExact,
+            Function<Alliance, T> applyIfExact,
             Supplier<T> applyIfNone
     ) {
         if (null != shouldBelongTo) {
@@ -22,11 +22,11 @@ final class ConsortiumCriteria {
         }
     }
 
-    public static ConsortiumCriteria exact(Consortium shouldBelongTo) {
-        return new ConsortiumCriteria(shouldBelongTo);
+    public static AllianceCriteria exact(Alliance shouldBelongTo) {
+        return new AllianceCriteria(shouldBelongTo);
     }
 
-    public static ConsortiumCriteria none() {
-        return new ConsortiumCriteria(null);
+    public static AllianceCriteria none() {
+        return new AllianceCriteria(null);
     }
 }

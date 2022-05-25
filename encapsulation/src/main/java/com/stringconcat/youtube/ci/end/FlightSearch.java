@@ -6,11 +6,11 @@ class FlightSearch {
 
     public ZonedDateTime startsAt;
 
-    public ConsortiumCriteria belongsTo;
+    public AllianceCriteria belongsTo;
 
     public FlightSearch(
             final ZonedDateTime startsAt,
-            final ConsortiumCriteria belongsTo
+            final AllianceCriteria belongsTo
     ) {
         this.startsAt = startsAt;
         this.belongsTo = belongsTo;
