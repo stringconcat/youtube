@@ -4,11 +4,6 @@ import java.time.ZonedDateTime;
 
 public class Main {
 
-    public static void main(String[] args) {
-        exact();
-        none();
-    }
-
     public static void exact() {
         // API
         var findAlliance = new FlightSearch(

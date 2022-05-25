@@ -1,4 +1,4 @@
-package com.stringconcat.youtube.ci.end;
+package com.stringconcat.youtube.ci.advanced;
 
 import java.time.ZonedDateTime;
 
@@ -14,7 +14,7 @@ public class Main {
         // DATABASE
         String allianceAsString = findAlliance.belongsTo
                 .foldExactOrNone(
-                    alliance -> alliance.id,
+                        alliance -> alliance.id,
                     () -> null
         );
 
@@ -25,7 +25,7 @@ public class Main {
         // CALL 3rd party system
         String allianceAsStringForGet = findAlliance.belongsTo
                 .foldExactOrNone(
-                    alliance -> alliance.id,
+                        alliance -> alliance.id,
                     () -> " "
                 );
         var getRequest = "/flights?alliance="+allianceAsStringForGet;

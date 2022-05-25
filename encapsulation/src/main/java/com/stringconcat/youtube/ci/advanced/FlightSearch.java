@@ -1,4 +1,4 @@
-package com.stringconcat.youtube.ci.zero;
+package com.stringconcat.youtube.ci.advanced;
 
 import java.time.ZonedDateTime;
 
@@ -6,11 +6,11 @@ class FlightSearch {
 
     public ZonedDateTime startsAt;
 
-    public Alliance belongsTo; // nullable
+    public AllianceCriteria belongsTo;
 
     public FlightSearch(
             final ZonedDateTime startsAt,
-            final Alliance belongsTo
+            final AllianceCriteria belongsTo
     ) {
         this.startsAt = startsAt;
         this.belongsTo = belongsTo;
