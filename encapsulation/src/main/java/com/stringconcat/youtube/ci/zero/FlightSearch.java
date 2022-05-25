@@ -1,13 +1,12 @@
-package com.stringconcat.youtube.ci.one;
+package com.stringconcat.youtube.ci.zero;
 
 import java.time.ZonedDateTime;
-import java.util.Optional;
 
 class FlightSearch {
 
     public ZonedDateTime startsAt;
 
-    private Alliance belongsTo;
+    public Alliance belongsTo;
 
     public FlightSearch(
             final ZonedDateTime startsAt,
@@ -15,9 +14,5 @@ class FlightSearch {
     ) {
         this.startsAt = startsAt;
         this.belongsTo = belongsTo;
-    }
-
-    public Optional<Alliance> belongsTo() {
-        return Optional.ofNullable(belongsTo);
     }
 }

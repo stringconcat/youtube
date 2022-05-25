@@ -11,40 +11,29 @@ public class Main {
 
     public static void exact() {
         // API
-        var findSkyTeamFlights = new FlightSearch(
+        var findAlliance = new FlightSearch(
                 ZonedDateTime.now(),
                 AllianceCriteria.exact(new Alliance("SkyTeam"))
         );
 
-        // DATABASE
-        String findSkyTeamFlightsQuery;
-        if (findSkyTeamFlights.belongsTo instanceof AllianceCriteria.Exact) {
-            findSkyTeamFlightsQuery = ((AllianceCriteria.Exact) findSkyTeamFlights.belongsTo).alliance.id;
-        } else if (findSkyTeamFlights.belongsTo instanceof AllianceCriteria.None) {
-            findSkyTeamFlightsQuery = " ";
-        } else {
-            throw new IllegalArgumentException("ooops");
-        }
-
-        System.out.println("find Sky Team Flights Query: " + findSkyTeamFlightsQuery);
-
-    }
-
-    public static void none() {
-        var findAllFlights = new FlightSearch(
+        var findAlliance = new FlightSearch(
                 ZonedDateTime.now(),
                 AllianceCriteria.none()
         );
 
-        String findAllFlightsQuery;
-        if (findAllFlights.belongsTo instanceof AllianceCriteria.Exact) {
-            findAllFlightsQuery = ((AllianceCriteria.Exact) findAllFlights.belongsTo).alliance.id;
-        } else if (findAllFlights.belongsTo instanceof AllianceCriteria.None) {
-            findAllFlightsQuery = " ";
+        // DATABASE
+        String allianceAsString;
+        if (findAlliance.belongsTo instanceof AllianceCriteria.Exact) {
+            allianceAsString = ((AllianceCriteria.Exact) findAlliance.belongsTo).alliance.id;
+        } else if (findAlliance.belongsTo instanceof AllianceCriteria.None) {
+            allianceAsString = "no one";
         } else {
             throw new IllegalArgumentException("ooops");
         }
 
-        System.out.println("find All Flights Query: " + findAllFlightsQuery);
+        String sql = "Insert into FLIGHT_SEARCH (alliance) VALUES ("+allianceAsString+")";
+
+        System.out.println("find Sky Team Flights Query: " + sql);
+
     }
 }

@@ -1,4 +1,4 @@
-package com.stringconcat.youtube.ci.one;
+package com.stringconcat.youtube.ci.zero;
 
 import java.time.ZonedDateTime;
 
@@ -6,7 +6,6 @@ public class Main {
 
     public static void exact() {
         // API
-
         var findAlliance = new FlightSearch(
                 ZonedDateTime.now(),
                 new Alliance("SkyTeam")
@@ -18,13 +17,10 @@ public class Main {
         );
 
         // DATABASE
-        String allianceAsString = findAlliance.belongsTo()
-            .map(alliance -> alliance.id)
-            .orElse("no one");
+        String allianceAsString = findAlliance.belongsTo!=null?findAlliance.belongsTo.id:" ";
 
         String sql = "Insert into FLIGHT_SEARCH (alliance) VALUES ("+allianceAsString+")";
 
-        System.out.println(sql);
+        System.out.println("find Sky Team Flights Query: " + sql);
     }
-
 }
