@@ -11,7 +11,7 @@ public class Main {
                 new Alliance("SkyTeam")
         );
 
-        var findAlliance = new FlightSearch(
+        var findNoAlliance = new FlightSearch(
                 ZonedDateTime.now(),
                 null
         );
