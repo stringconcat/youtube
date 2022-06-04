@@ -10,9 +10,7 @@ interface AllianceCriteria {
         }
     }
 
-    class None implements AllianceCriteria {
-
-    }
+    class None implements AllianceCriteria { }
 
     static AllianceCriteria exact(final Alliance alliance) {
         return new Exact(alliance);

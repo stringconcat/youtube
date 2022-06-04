@@ -35,14 +35,8 @@ class AllianceCriteria {
 
         class None implements Criteria { }
     }
+}
 
 
 
-    static AllianceCriteria exact(final Alliance alliance) {
-        return new AllianceCriteria(new Criteria.Exact(alliance));
-    }
-
-    static AllianceCriteria none() {
-        return new AllianceCriteria(new Criteria.None());
-    }
 }

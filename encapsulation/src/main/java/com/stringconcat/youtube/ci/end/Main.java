@@ -18,9 +18,10 @@ public class Main {
                     () -> null
         );
 
-        String sql = "Insert into FLIGHT_SEARCH (alliance) VALUES ("+allianceAsString+")";
-
-        System.out.println("find Sky Team Flights Query: " + sql);
+        String sql = String.format(
+                "Insert into FLIGHT_SEARCH (alliance) VALUES (%s)",
+                allianceAsString
+        );
 
         // CALL 3rd party system
         String allianceAsStringForGet = findAlliance.belongsTo

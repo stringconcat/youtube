@@ -22,7 +22,10 @@ public class Main {
             .map(alliance -> alliance.id)
             .orElse("no one");
 
-        String sql = "Insert into FLIGHT_SEARCH (alliance) VALUES ("+allianceAsString+")";
+        String sql = String.format(
+                "Insert into FLIGHT_SEARCH (alliance) VALUES (%s)",
+                allianceAsString
+        );
 
         System.out.println(sql);
     }
